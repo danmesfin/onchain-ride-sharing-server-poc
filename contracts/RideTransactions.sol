@@ -74,4 +74,9 @@ contract RideTransactions {
     function getRideDetails(uint256 _rideId) external view returns (Ride memory) {
         return rides[_rideId];
     }
+
+    // setter for cost per unit
+    function setCostPerUnit(uint256 _costPerUnit) external {
+        costPerUnit = _costPerUnit;
+    }
 }
