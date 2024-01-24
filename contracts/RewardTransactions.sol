@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract CarbonCreditRewards {
+contract RewardTransactions {
     uint256 private constant SCALE = 1e18;
 
     // Mapping from vehicle type to its emission factor (CO2 emitted per unit distance)
