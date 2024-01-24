@@ -28,8 +28,8 @@ contract RideTransactions {
         costPerUnit = 10 * SCALE;
     }
 
-    function startRide(uint256 _rideId, address _user, uint256 _estimatedEndTime) public {
-        require(_rideId == nextRideId, "Invalid ride ID");
+    function startRide( address _user, uint256 _estimatedEndTime) public {
+        uint256 _rideId = nextRideId;
         rides[nextRideId] = Ride(_rideId, _user, msg.sender, block.timestamp, _estimatedEndTime, 0, false);
         emit RideStarted(_rideId, _user, msg.sender, block.timestamp);
         nextRideId++;
