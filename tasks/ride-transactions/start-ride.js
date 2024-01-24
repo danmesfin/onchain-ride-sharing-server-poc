@@ -1,12 +1,14 @@
 task("start-ride", "Starts a new ride")
   .addParam("contract", "The address of the RideTransactions contract")
-  .addParam("rideId", "The ID of the ride")
   .addParam("user", "The address of the user")
-  .addParam("estimatedEndTime", "The estimated end time of the ride")
+  .addParam("estimatedendtime", "The estimated end time of the ride")
   .setAction(async (taskArgs, hre) => {
-    const rideTransactions = await hre.ethers.getContractAt("RideTransactions", taskArgs.contract);
-    await rideTransactions.startRide(taskArgs.rideId, taskArgs.user, taskArgs.estimatedEndTime);
-    console.log(`Ride started with ID: ${taskArgs.rideId}`);
+    const contractAddr = taskArgs.contract;
+    const user = taskArgs.user;
+    const estimatedEndTime = taskArgs.estimatedendtime;
+    const rideTransactions = await hre.ethers.getContractAt("RideTransactions", contractAddr);
+    await rideTransactions.startRide( user, estimatedEndTime);
+    console.log(`Ride started with ID: ${'TODO'}`);
   });
 
 module.exports = {}
