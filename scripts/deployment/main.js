@@ -8,17 +8,19 @@ const {
     deployRandomNumberDirectFundingConsumer,
 } = require("./deployRandomNumberDirectFundingConsumer");
 const { deployRideTransactions } = require("./deployRideTransactions"); // Import the new deployment function
+const { deployRewardTransactions } = require("./deployRewardTransactions");
 
 async function main() {
     await run("compile");
     const chainId = network.config.chainId;
 
-    await deployApiConsumer(chainId);
-    await deployAutomationCounter(chainId);
-    await deployPriceConsumerV3(chainId);
-    await deployRandomNumberConsumer(chainId);
-    await deployRandomNumberDirectFundingConsumer(chainId);
+    // await deployApiConsumer(chainId);
+    // await deployAutomationCounter(chainId);
+    // await deployPriceConsumerV3(chainId);
+    // await deployRandomNumberConsumer(chainId);
+    // await deployRandomNumberDirectFundingConsumer(chainId);
     await deployRideTransactions(chainId);
+    await deployRewardTransactions(chainId);
 }
 
 main().catch((error) => {
