@@ -12,6 +12,8 @@ const COMPILER_SETTINGS = {
     },
 }
 
+const FUJI_RPC_URL = process.env.FUJI_RPC_URL || "https://eth-fuji.alchemyapi.io/v2/your-api-key"
+
 const MAINNET_RPC_URL =
     process.env.MAINNET_RPC_URL ||
     process.env.ALCHEMY_MAINNET_RPC_URL ||
@@ -90,8 +92,13 @@ module.exports = {
             accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
             chainId: 80001,
         },
+        fuji: {
+            url: FUJI_RPC_URL,
+            chainId: 43113,
+            accounts: [process.env.PRIVATE_KEY] // Your private key
+          }
     },
-    defaultNetwork: "hardhat",
+    defaultNetwork: "fuji",
     etherscan: {
         // yarn hardhat verify --network <NETWORK> <CONTRACT_ADDRESS> <CONSTRUCTOR_PARAMETERS>
         apiKey: {
