@@ -1,0 +1,5 @@
+exports.allocateCredit = require("./allocate-credit.js")
+exports.redeemCredit = require("./redeem-credit.js")
+exports.getRewardBalance = require("./get-reward-balance.js")
+exports.setEmissionFactor = require("./set-emission-factor.js")
+exports.getEmissionFactor = require("./get-emission-factor.js")

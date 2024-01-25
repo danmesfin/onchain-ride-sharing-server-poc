@@ -1,5 +1,3 @@
-// scripts/deployRideTransactions.js
-
 const { ethers } = require("hardhat");
 
 async function deployRewardTransactions(chainId) {
