@@ -1,7 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
+import "./RewardTransactions.sol";
 
 contract RideTransactions {
+    RewardTransactions private rewardsContract;
+   
     struct Ride {
         uint256 id;
         address user;
@@ -18,15 +21,18 @@ contract RideTransactions {
     uint256 public nextRideId;
     mapping(uint256 => Ride) public rides;
 
+    // reward contract address need to be set before deploying the contract
+    constructor() {
+        address _rewardsContractAddress = 0x24E2Ad92147651fCF22aB4a0C5AF25b42bdEFF83;
+        nextRideId = 1;
+        costPerUnit = 10 * SCALE;
+        rewardsContract = RewardTransactions(_rewardsContractAddress);
+    }
+
     event RideStarted(uint256 indexed rideId, address indexed user, address indexed driver, uint256 startTime);
     event RideCompleted(uint256 indexed rideId, uint256 finalCost);
     event PaymentProcessed(uint256 indexed rideId, uint256 amount, address indexed user);
     event RideCancelled(uint256 indexed rideId);
-
-    constructor() {
-        nextRideId = 1;
-        costPerUnit = 10 * SCALE;
-    }
 
     function startRide( address _user, uint256 _estimatedEndTime) public {
         uint256 _rideId = nextRideId;
@@ -48,14 +54,15 @@ contract RideTransactions {
         emit RideCompleted(_rideId, finalCost);
     }
 
-    function processPayment(uint256 _rideId) public payable {
+    function processPayment(uint256 _rideId, address _user, uint256 _distanceTraveled, bytes32 _vehicleType) public payable {
         Ride storage ride = rides[_rideId];
         require(ride.completed, "Ride not completed");
         require(msg.sender == ride.user, "Only the user can make the payment");
         require(msg.value >= ride.finalCost, "Insufficient payment");
 
         payable(ride.driver).transfer(msg.value);
-
+        rewardsContract.allocateCredits( _user, _distanceTraveled, _vehicleType);
+        
         emit PaymentProcessed(_rideId, msg.value, msg.sender);
     }
 
