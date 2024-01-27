@@ -98,7 +98,7 @@ module.exports = {
             accounts: [process.env.PRIVATE_KEY] // Your private key
           }
     },
-    defaultNetwork: "fuji",
+    defaultNetwork: "hardhut",
     etherscan: {
         // yarn hardhat verify --network <NETWORK> <CONTRACT_ADDRESS> <CONSTRUCTOR_PARAMETERS>
         apiKey: {
