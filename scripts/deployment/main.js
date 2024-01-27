@@ -20,7 +20,7 @@ async function main() {
     // await deployRandomNumberConsumer(chainId);
     // await deployRandomNumberDirectFundingConsumer(chainId);
     await deployRideTransactions(chainId);
-    await deployRewardTransactions(chainId);
+    //await deployRewardTransactions(chainId);
 }
 
 main().catch((error) => {
