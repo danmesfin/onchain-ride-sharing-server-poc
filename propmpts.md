@@ -26,3 +26,7 @@ reward contract = 0x24E2Ad92147651fCF22aB4a0C5AF25b42bdEFF83
 ----------
 RideTransactions deployed to: 0x4fDBd4C17B12f555E8bc44a1182e2e7cF85386F3 on chain: 43113
 ----------
+
+Reward Contract deployed to: 0xD05AF94Bb79db680e39c4f71dCf9023c8E2fC732 on chain: 43113
+-------
+RideTransactions deployed to: 0xB0B427dda71398b6aA1a0AeC1cbdE8F887Ea36E2 on chain: 43113

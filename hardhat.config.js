@@ -24,6 +24,7 @@ const SEPOLIA_RPC_URL =
     process.env.SEPOLIA_RPC_URL;
 const MUMBAI_RPC_URL =
     process.env.MUMBAI_RPC_URL || "https://polygon-mumbai.g.alchemy.com/v2/your-api-key"
+    
 const PRIVATE_KEY = process.env.PRIVATE_KEY
 // optional
 const MNEMONIC = process.env.MNEMONIC || "Your mnemonic"
@@ -95,10 +96,10 @@ module.exports = {
         fuji: {
             url: FUJI_RPC_URL,
             chainId: 43113,
-            accounts: [process.env.PRIVATE_KEY] // Your private key
+            accounts: [PRIVATE_KEY] // Your private key
           }
     },
-    defaultNetwork: "hardhut",
+    defaultNetwork: "fuji",
     etherscan: {
         // yarn hardhat verify --network <NETWORK> <CONTRACT_ADDRESS> <CONSTRUCTOR_PARAMETERS>
         apiKey: {
