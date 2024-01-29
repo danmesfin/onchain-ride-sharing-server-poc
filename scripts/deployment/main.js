@@ -19,8 +19,8 @@ async function main() {
     // await deployPriceConsumerV3(chainId);
     // await deployRandomNumberConsumer(chainId);
     // await deployRandomNumberDirectFundingConsumer(chainId);
-    await deployRideTransactions(chainId);
-    //await deployRewardTransactions(chainId);
+     await deployRideTransactions(chainId);
+   // await deployRewardTransactions(chainId);
 }
 
 main().catch((error) => {
