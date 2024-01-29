@@ -4,9 +4,10 @@ task("get-ride-details", "Gets the details of a specific ride")
   .setAction(async (taskArgs, hre) => {
     const contractAddr = taskArgs.contract;
     const rideId = taskArgs.rideid;
+
     const rideTransactions = await hre.ethers.getContractAt("RideTransactions", contractAddr);
     const rideDetails = await rideTransactions.getRideDetails(rideId);
-    console.log(`Ride Details: `, rideDetails);
+    console.log("Ride Details:", rideDetails);
   });
 
-module.exports = {}
+module.exports = {};
