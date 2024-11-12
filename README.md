@@ -1,4 +1,4 @@
-# tcg ride sharing-server
+# onchain-ride-sharing-server-poc
 <br/>
 <p align="center">
 <a href="https://chain.link" target="_blank">
